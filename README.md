@@ -1,0 +1,5 @@
+SET VARIABLES FOR EXISTING RESOURCE GROUP AND DATA FACTORY IN ENV/TEMPLATE.TFVARS
+
+
+RUN THIS COMMAND
+terraform apply --var-file=env/template.tfvars  --auto-approve
