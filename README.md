@@ -1,4 +1,4 @@
-# REQUIRED ENV VARIABLES
+# SET REQUIRED ENV VARIABLES
 ARM_SUBSCRIPTION_ID=""
 ARM_CLIENT_ID=""
 ARM_CLIENT_SECRET=""
@@ -9,7 +9,8 @@ DATABRICKS_TOKEN=""
 
 
 # SET VARIABLES FOR EXISTING RESOURCE GROUP AND DATA FACTORY IN ENV/TEMPLATE.TFVARS
-
+resource_group_name = ""
+data_factory_name   = ""
 
 # RUN THIS COMMAND
 terraform apply --var-file=env/template.tfvars  --auto-approve
