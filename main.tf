@@ -23,9 +23,15 @@ provider "databricks" {
   azure_tenant_id       = ""
 }
 
+
+
+
 resource "databricks_notebook" "deploy_databricks_notebook_raw_pii_to_raw_shared" {
-  content_base64 = base64encode(templatefile(abspath("${path.module}/templates/test_file.py"), {
+  for_each = local.dah
+
+  content_base64 = base64encode(templatefile(abspath("${path.module}/templates/${each.value.source_path}"), {
+    notebook_params = each.value.notebook_params
   }))
-  path     = var.notebook_path
+  path     = "${var.notebook_path}/${each.value.file_name}"
   language = "PYTHON"
 }
